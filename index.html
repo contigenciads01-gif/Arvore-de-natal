@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- =========================================================================
+       CONFIGURAÇÃO GERAL DA PÁGINA (EDITE OS LINKS E DADOS AQUI NO TOPO)
+  ========================================================================== -->
+  <script>
+    const LINK_ARVORE = "COLE_AQUI_O_LINK";
+    const LINK_ARVORE_PAPAIS = "COLE_AQUI_O_LINK";
+    const LINK_KIT_COMPLETO = "COLE_AQUI_O_LINK";
+    const LINK_OFERTA_POPUP = "COLE_AQUI_O_LINK"; // Kit completo por R$ 127,90
+    const WHATSAPP = "55DDDNUMERO";               // Insira o número com DDD (ex: 5511999999999)
+    const PRECO_KIT_COMPLETO = "R$ 219,90";       // Valor do Kit Completo
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Árvore de Natal Vermelha Decorada | Oferta Especial de Antecipação</title>
+  <meta name="description" content="Garanta sua Árvore de Natal Vermelha Decorada com laços, poinsétias e estrela dourada antes que o preço suba em dezembro. Oferta por tempo limitado!">
+
+  <!-- Fontes Google Premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Canvas Interativo de Neve Sutil e Brilhos Dourados -->
+  <canvas id="snowCanvas"></canvas>
+
+  <!-- =========================================================================
+       1. BARRA DE URGÊNCIA FIXA NO TOPO
+  ========================================================================== -->
+  <aside class="top-urgency-bar" aria-label="Barra de Urgência">
+    <div class="urgency-content">
+      <span class="urgency-text">
+        <span class="urgency-flame">🔥</span>
+        Oferta de antecipação: em dezembro o preço sobe!
+      </span>
+      <span class="urgency-timer" id="urgencyTimer" aria-live="polite">15m 00s</span>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. HERO SECTION
+  ========================================================================== -->
+  <header class="hero-section">
+    <div class="container">
+      
+      <div class="hero-badge">
+        <span>✨</span> Edição Especial de Natal • Estoque Limitado
+      </div>
+
+      <h1 class="hero-title">
+        Compre agora e pague menos! <br>
+        <span class="text-gold">Em dezembro estará mais caro 🎄</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A elegância inesquecível da árvore de Natal vermelha: ramos fartos com laços aveludados requintados, poinsétias vermelhas artesanais e uma majestosa estrela dourada iluminada no topo.
+      </p>
+
+      <!-- Imagem Principal da Árvore com Halo Mágico de Luz -->
+      <div class="hero-image-wrap">
+        <img 
+          src="assets/arvore-com-papais.jpg" 
+          alt="Árvore de Natal Vermelha Decorada com Trio de Papais Noéis" 
+          class="hero-img"
+          loading="eager"
+          width="480"
+          height="640">
+      </div>
+
+      <!-- Destaques Rápidos de Confiança -->
+      <div class="hero-highlights">
+        <div class="highlight-pill">
+          <span>⭐</span> 4.9/5 Avaliação dos Clientes
+        </div>
+        <div class="highlight-pill">
+          <span>🚚</span> Envio Rápido para Todo o Brasil
+        </div>
+        <div class="highlight-pill">
+          <span>🎁</span> Decoração Completa Pronta
+        </div>
+      </div>
+
+      <!-- Botão de Rolagem Suave até as Ofertas -->
+      <div>
+        <a href="#ofertas" class="btn-hero-scroll" id="heroScrollBtn">
+          <span>VER AS OFERTAS</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. TRÊS CARDS DE OFERTA SEPARADOS
+  ========================================================================== -->
+  <section class="offers-section" id="ofertas">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">Escolha a Opção Perfeita</span>
+        <h2 class="section-title">Nossas Ofertas de Antecipação</h2>
+        <p class="section-desc">Garanta agora com valor reduzido antes do reajuste de fim de ano.</p>
+      </div>
+
+      <div class="offers-grid">
+
+        <!-- CARD 1: Só a Árvore -->
+        <article class="offer-card" id="card-arvore">
+          <div class="card-image-wrap">
+            <img 
+              src="assets/arvore-sozinha.jpg" 
+              alt="Só a Árvore de Natal Vermelha Decorada" 
+              class="card-img"
+              loading="lazy">
+          </div>
+
+          <div class="card-header">
+            <h3 class="card-title">Só a Árvore</h3>
+            <div class="card-pricing">
+              <span class="price-old">De R$ 229,90 por:</span>
+              <div class="price-current">R$ 149,96</div>
+              <span class="price-installments">em até 12x no cartão ou Pix</span>
+            </div>
+          </div>
+
+          <div class="stock-warning">
+            <span>⚠️</span> Unidades limitadas (restam 11 unidades)
+          </div>
+
+          <ul class="card-items-list">
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Árvore de Natal vermelha premium decorada</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Estrela dourada reluzente no topo</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Laços aveludados e poinsétias vermelhas</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Base estável reforçada inclusa</span>
+            </li>
+          </ul>
+
+          <a href="#" class="btn-card btn-buy-green" id="btn-comprar-arvore">
+            QUERO A ÁRVORE
+          </a>
+        </article>
+
+        <!-- CARD 2: Árvore + Trio de Papais Noéis (MAIS VENDIDO) -->
+        <article class="offer-card" id="card-papais">
+          <div class="card-badge badge-bestseller">🔥 MAIS VENDIDO</div>
+
+          <div class="card-image-wrap">
+            <img 
+              src="assets/arvore-com-papais.jpg" 
+              alt="Árvore de Natal com Trio de Papais Noéis" 
+              class="card-img"
+              loading="lazy">
+          </div>
+
+          <div class="card-header">
+            <h3 class="card-title">Árvore + Trio de Papais Noéis</h3>
+            <div class="card-pricing">
+              <span class="price-old">De R$ 279,90 por:</span>
+              <div class="price-current">R$ 187,74</div>
+              <span class="price-installments">em até 12x no cartão ou Pix</span>
+            </div>
+          </div>
+
+          <div class="stock-warning">
+            <span>⚠️</span> Unidades limitadas (restam 6 unidades)
+          </div>
+
+          <ul class="card-items-list">
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Árvore de Natal vermelha decorada completa</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Estrela de topo dourada reluzente</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span><strong>Trio exclusivo de 3 Papais Noéis fofos</strong></span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Saia felpuda luxo para a base</span>
+            </li>
+          </ul>
+
+          <a href="#" class="btn-card btn-buy-green" id="btn-comprar-papais">
+            QUERO COM OS PAPAIS NOÉIS
+          </a>
+        </article>
+
+        <!-- CARD 3: Kit Completo (MELHOR CUSTO-BENEFÍCIO - DESTACADO) -->
+        <article class="offer-card featured" id="card-kit-completo">
+          <div class="card-badge">⭐ MELHOR CUSTO-BENEFÍCIO</div>
+
+          <div class="card-image-wrap">
+            <img 
+              src="assets/kit-completo.jpg" 
+              alt="Kit Completo com Árvore, Papais Noéis e Pisca-pisca Vermelho" 
+              class="card-img"
+              loading="lazy">
+          </div>
+
+          <div class="card-header">
+            <h3 class="card-title">Kit Completo</h3>
+            <div class="card-pricing">
+              <span class="price-old">De R$ 349,90 por:</span>
+              <div class="price-current preco-kit-dinamico">R$ 219,90</div>
+              <span class="price-installments">em até 12x no cartão ou Pix</span>
+            </div>
+          </div>
+
+          <div class="stock-warning" style="background: rgba(212, 175, 55, 0.15); border-color: rgba(212, 175, 55, 0.6); color: var(--gold-light);">
+            <span>⚡</span> Unidades limitadas (apenas 4 kits restantes!)
+          </div>
+
+          <ul class="card-items-list">
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Árvore de Natal vermelha premium decorada</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Estrela iluminada de topo</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Trio de 3 Papais Noéis decorativos fofos</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span><strong>Pisca-pisca micro-LED vermelho brilhante</strong></span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Saia de árvore felpuda e laços nobres</span>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <span>Frete com seguro contra extravios</span>
+            </li>
+          </ul>
+
+          <a href="#" class="btn-card btn-buy-gold" id="btn-comprar-kit">
+            QUERO O KIT COMPLETO
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. BENEFÍCIOS COM ÍCONES
+  ========================================================================== -->
+  <section class="benefits-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">Por Que Escolher Nossa Árvore</span>
+        <h2 class="section-title">Vantagens Feitas para o Seu Natal</h2>
+      </div>
+
+      <div class="benefits-grid">
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">🎁</div>
+          <h3 class="benefit-title">Decoração Pronta e Linda</h3>
+          <p class="benefit-text">
+            Nada de perder horas combinando enfeites avulsos. A árvore já vem perfeitamente harmonizada, exuberante e pronta para montar em minutos.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">✨</div>
+          <h3 class="benefit-title">Visual Elegante em Vermelho</h3>
+          <p class="benefit-text">
+            O vermelho borgonha nobre combinado com o dourado metálico traz aconchego, requinte e o verdadeiro espírito acolhedor do Natal.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">❤️</div>
+          <h3 class="benefit-title">Ótima para Presentear ou Renovar</h3>
+          <p class="benefit-text">
+            Surpreenda quem você ama ou transforme as tradições da sua casa com um produto resistente e impecável para durar muitos Natais.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">💰</div>
+          <h3 class="benefit-title">Economia Comprando Antes</h3>
+          <p class="benefit-text">
+            Em dezembro os preços disparam devido à alta procura. Comprando agora você economiza muito e recebe com antecedência e tranquilidade.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. PROVA SOCIAL (DEPOIMENTOS DE CLIENTES)
+  ========================================================================== -->
+  <section class="reviews-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="sales-banner">
+          <span>⭐</span> Mais de 1.850 árvores vendidas neste ano
+        </div>
+        <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+        <p class="section-desc">Avaliações reais de quem já garantiu a decoração dos sonhos.</p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <!-- Depoimento 1 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Gente, a árvore é simplesmente deslumbrante! Os 3 Papais Noéis são a coisa mais fofa do mundo, meus filhos amaram. Chegou muito bem embalada e bem antes do prazo. Valeu cada centavo!"
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">MS</div>
+            <div class="author-info">
+              <h4>Mariana Silveira</h4>
+              <div class="author-meta">
+                <span class="verified-badge">✓ Compra Verificada</span> • São Paulo, SP
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Comprei antecipado para economizar e fiquei impressionado com a qualidade do veludo dos laços e o brilho dos LEDs vermelhos. Dá um clima natalino muito acolhedor na sala de estar!"
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">CE</div>
+            <div class="author-info">
+              <h4>Carlos Eduardo R.</h4>
+              <div class="author-meta">
+                <span class="verified-badge">✓ Compra Verificada</span> • Curitiba, PR
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Melhor compra de Natal que já fiz! Todo mundo que vem aqui em casa elogia a cor vermelha com dourado. Sai do comum e fica parecendo decoração de novela ou shopping chique. Amei!"
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">JM</div>
+            <div class="author-info">
+              <h4>Juliana Mendes</h4>
+              <div class="author-meta">
+                <span class="verified-badge">✓ Compra Verificada</span> • Belo Horizonte, MG
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. GALERIA COM AS FOTOS
+  ========================================================================== -->
+  <section class="gallery-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">Galeria de Fotos</span>
+        <h2 class="section-title">Veja os Detalhes de Perto</h2>
+        <p class="section-desc">Clique nas imagens para ampliar em alta resolução.</p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <img src="assets/arvore-com-papais.jpg" alt="Árvore com os 3 Papais Noéis" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">🔍 Árvore e Trio de Papais Noéis</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/pisca-pisca-vermelho.jpg" alt="Pisca-pisca micro-LED vermelho aconchegante" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">🔍 Luzes Micro-LED Vermelhas</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/kit-completo.jpg" alt="Kit Completo de Natal Decorado" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">🔍 Kit Completo Montado</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/arvore-sozinha.jpg" alt="Árvore de Natal Vermelha com Iluminação Clássica" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">🔍 Detalhes dos Enfeites e Estrela</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal Lightbox para Ampliar Fotos -->
+  <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Visualizador de Fotos">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar visualização">&times;</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImage">
+  </div>
+
+  <!-- =========================================================================
+       7. FAQ CURTO (ACORDEÃO)
+  ========================================================================== -->
+  <section class="faq-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">Tire Suas Dúvidas</span>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <!-- Pergunta 1: Entrega -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Como funciona a entrega e qual é o prazo?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              O envio é feito com código de rastreamento e seguro total contra perdas ou danos. As entregas para as principais capitais levam de 4 a 8 dias úteis, e demais regiões de 6 a 12 dias úteis. Comprando agora na antecipação, você garante o recebimento com bastante folga antes de dezembro!
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 2: Formas de Pagamento -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Aceitamos Pix (com aprovação imediata), cartão de crédito em até 12 vezes, e boleto bancário. O ambiente de pagamento é 100% blindado com criptografia SSL.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 3: Tamanho da Árvore -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Qual é o tamanho da árvore e como é feita a montagem?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              A árvore possui altura ideal para apartamentos e salas (aproximadamente 1,50m a 1,80m com galhos flexíveis fartos e exuberantes). A montagem é no sistema de encaixe rápido com base de metal antiderrapante, pronta em menos de 10 minutos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 4: O que vem no kit -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>O que vem incluso em cada kit?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Dependendo da opção escolhida: <br>
+              • <strong>Só a Árvore:</strong> Árvore decorada + estrela de topo + laços e flores + base.<br>
+              • <strong>Árvore + Papais Noéis:</strong> Tudo acima + 3 Papais Noéis decorativos fofos + saia felpuda.<br>
+              • <strong>Kit Completo:</strong> Tudo acima + conjunto especial de luzes pisca-pisca micro-LED vermelho.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 5: Como comprar -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Como faço para comprar e garantir o preço promocional?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Basta clicar no botão da opção desejada nos cards de oferta acima ou chamar nossa equipe no botão de WhatsApp. Você será direcionado para a página segura de finalização do pedido.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. CTA FINAL
+  ========================================================================== -->
+  <section class="final-cta-section">
+    <div class="container">
+      
+      <div class="final-cta-card">
+        <h2 class="final-cta-title">
+          Compre agora e pague menos! <br>
+          <span class="text-gold">Em dezembro estará mais caro 🎄</span>
+        </h2>
+        <p class="final-cta-desc">
+          Restam poucos kits em estoque pelo preço promocional de antecipação. Garanta o seu hoje mesmo com suporte imediato pelo WhatsApp!
+        </p>
+
+        <a href="#" class="btn-whatsapp-large link-whatsapp">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <span>FALAR COM ATENDIMENTO NO WHATSAPP</span>
+        </a>
+
+        <div class="security-badges">
+          <div class="security-item">🔒 Compra 100% Protegida</div>
+          <div class="security-item">📦 Envio Rápido e Seguro</div>
+          <div class="security-item">🛡️ Garantia Incondicional de 7 Dias</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR DIREITO)
+  ========================================================================== -->
+  <a href="#" class="whatsapp-floating link-whatsapp" aria-label="Fale conosco pelo WhatsApp">
+    <span class="whatsapp-tooltip">Dúvidas? Fale conosco!</span>
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- =========================================================================
+       POP-UP DE SAÍDA (EXIT INTENT)
+  ========================================================================== -->
+  <div class="exit-popup-backdrop" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="exit-popup-card">
+      <button class="popup-close-btn" id="popupCloseBtn" aria-label="Fechar pop-up">&times;</button>
+      
+      <span class="popup-tag">🎁 OFERTA EXCLUSIVA DE SAÍDA</span>
+
+      <h2 class="popup-title" id="popupTitle">
+        ESPERE! Não vá embora de mãos vazias 🎁
+      </h2>
+
+      <p class="popup-desc">
+        Leve o <strong>KIT COMPLETO</strong> (árvore + 3 Papais Noéis + pisca-pisca vermelho) com desconto exclusivo por apenas <strong>R$ 127,90</strong>!
+      </p>
+
+      <div class="popup-img-wrap">
+        <img src="assets/kit-completo.jpg" alt="Kit Completo com Desconto de Saída" class="popup-img" loading="lazy">
+      </div>
+
+      <div class="popup-pricing">
+        <span class="popup-old-price">De R$ 219,90 por apenas:</span>
+        <div class="popup-new-price">R$ 127,90</div>
+      </div>
+
+      <div class="popup-timer-box">
+        <span>⏰ Oferta válida por:</span>
+        <strong id="popupTimer">10:00</strong>
+      </div>
+
+      <a href="#" class="btn-popup-cta" id="btn-popup-desconto">
+        QUERO O DESCONTO AGORA
+      </a>
+
+      <button class="popup-dismiss-link" id="popupDismissLink">
+        Não, obrigado. Prefiro pagar mais caro depois.
+      </button>
+    </div>
+  </div>
+
+  <!-- Rodapé Simples -->
+  <footer class="page-footer">
+    <div class="container">
+      <p>© 2026 Árvore de Natal Vermelha Decorada. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script Principal -->
+  <script src="js/script.js"></script>
+</body>
+</html>
